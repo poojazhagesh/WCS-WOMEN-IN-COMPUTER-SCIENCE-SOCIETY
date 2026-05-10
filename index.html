@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Women in Computer Science</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --primary: #5b2c83;
+      --accent: #ff6fa9;
+      --bg: #f7f4fb;
+      --text: #222;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    section h2 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-tagline {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-highlight {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      padding: 1.5rem;
+      border-radius: 1rem;
+    }
+
+    .hero-card h3 {
+      margin-top: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      border: none;
+      background: #fff;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .btn:hover,
+    .btn:focus {
+      background: #f3e9ff;
+    }
+
+    .president-profile {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .event-card {
+      border-radius: 0.75rem;
+      border: 1px solid #eee;
+      padding: 1rem 1.2rem;
+      background: #faf8ff;
+    }
+
+    .event-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .event-title {
+      font-weight: 600;
+      margin: 0.4rem 0;
+    }
+
+    .event-tag {
+      display: inline-block;
+      margin-top: 0.4rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: #fff;
+      font-size: 0.75rem;
+      color: var(--primary);
+      border: 1px solid #e0d4ff;
+    }
+
+    form {
+      display: grid;
+      gap: 1rem;
+      max-width: 500px;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.6rem 0.7rem;
+      border-radius: 0.5rem;
+      border: 1px solid #ccc;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 2px solid var(--accent);
+      border-color: var(--accent);
+    }
+
+    .submit-btn {
+      width: fit-content;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 999px;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover,
+    .submit-btn:focus {
+      background: #4a216c;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem 2rem;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    @media (max-width: 720px) {
+      .hero,
+      .president-profile {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding: 0.8rem 1rem;
+      }
+
+      section {
+        padding: 1.5rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Main navigation">
+      <div class="brand">Women in Computer Science</div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#president">President</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact us</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" aria-labelledby="home-heading">
+      <div class="hero">
+        <div>
+          <h2 id="home-heading">Home</h2>
+          <p class="hero-highlight">Welcome to the Women in Computer Science Society!</p>
+          <p class="hero-tagline">
+            The Women in Computer Science Society is proudly dedicated to ensuring that women are heard, supported, and given the platform they deserve within the University of Westminster and the wider tech community. 
+            We are a non‑profit, inclusive organisation open to everyone — women, men, and non‑binary students who believe in empowerment, equality, and opportunity.
+        <p>
+            Throughout the year, we host a wide range of events including interviews, placement‑year planning sessions, CV workshops, Podium Master public‑speaking training, women‑in‑tech empowerment sessions, and much more. 
+            Our society especially welcomes beginners in Computer Science who are still finding their place in the industry — you belong here, and we’re here to support you.
+        </p>
+
+         <p>
+            We are proudly partnered with the Coding Society, giving our members access to coding support from experienced women in tech. 
+            Whether you’re a first‑year writing your first line of code or someone looking to strengthen your technical skills, our community is here to guide you.
+         </p>
+
+        <p>
+           Join us and become part of a supportive network dedicated to helping you grow — whether that’s through coding help, interview preparation, internship guidance, public speaking, or mentorship. 
+           Simply sign up with your full name and student ID to get started.
+        </p>
+
+        <p><strong>Many thanks,<br>
+        Pooja Azhagesh (President)</strong></p>
+    </section>
+    <section id="president" aria-labelledby="president-heading">
+     <h2 id="president-heading">Introduction to the President</h2>
+
+        <p>
+           Hi everyone, my name is <strong>Pooja Azhagesh</strong> and I am a second-year Computer Science student here at Westminster.
+        </p>
+
+        <p>
+           Women in Computer Science has been created to support and uplift young women, helping them become confident, 
+           motivated, and driven individuals within both our Westminster community and the wider tech industry.
+        </p>
+
+        <p>
+           Women are underrepresented in technology — and that needs to change. This society encourages women to step forward, 
+           take up space, and have their voices heard in Computer Science. We welcome students from all fields of study who 
+           believe in empowerment, equality, and growth.
+        </p>
+
+        <p>
+           I believe that teaching others from my own experience as a Computer Science student reflects my passion for the 
+           subject and my desire to help as many people as possible. Through Women in Computer Science, I hope to give back 
+           to the community that shaped me.
+        </p>
+
+        <p>
+           As a friendly and highly empathetic person, I am always ready to listen to your concerns and support you. 
+           Please feel free to come forward and ask me anything — I am here for you.
+        </p>
+
+        <p>
+         <strong>Best Wishes,<br>
+          Pooja Azhagesh (w2157366)</strong>
+        </p>
+    <section id="events" aria-labelledby="events-heading">
+      <h2 id="events-heading">Events</h2>
+
+      <p>
+         Throughout the academic year, the Women in Computer Science Society will host a wide range of workshops, talks, 
+         activities, and cross-department collaborations designed to empower women in technology. Below is our full 
+         programme for Semester 1 and Semester 2.
+      </p>
+
+     <!-- SEMESTER 1 -->
+     <h3>Semester 1 – Workshop Series</h3>
+
+     <article class="event-card">
+    <h4>Why Should Women Empower One Another in Computer Science?</h4>
+    <p><strong>Speaker:</strong> Pooja Azhagesh (President)</p>
+    <ul>
+      <li></li>Introduction from the President</li>
+      <li>Why this club was created</li>
+      <li>How the society supports women in achieving placements and jobs</li>
+      <li>Why empowerment matters</li>
+      <li>Meet & greet with other women in Computer Science</li>
+      <li>Discussion on interview skills and placement preparation</li>
+    </ul>
+  </article>
+
+  <article class="event-card">
+    <h4>Why Should Women Learn to Code?</h4>
+    <p><strong>Speaker:</strong> Pooja Azhagesh</p>
+    <p>Short LeetCode activity in mini-groups to build confidence and teamwork.</p>
+  </article>
+
+  <article class="event-card">
+    <h4>Why Should Women Consider Teaching Computer Science?</h4>
+    <p>Exploring teaching as a career path for women in tech.</p>
+    <p>Includes a short LeetCode challenge round.</p>
+  </article>
+
+  <article class="event-card">
+    <h4>Why Should Women Speak Up?</h4>
+    <p><strong>Internal Podium Master</strong> – bringing women from cross-departments to share how Computer Science 
+       influences fields like medicine, healthcare, engineering, finance, and more.</p>
+  </article>
+
+  <article class="event-card">
+    <h4>Why Should Women Become Software Engineers?</h4>
+    <p>Women from Software Engineering share their journeys and industry experiences.</p>
+  </article>
+
+  <article class="event-card">
+    <h4>Why Should Women Study Autonomous Systems & Robotics?</h4>
+    <p>Women from IEEE and the Robotics department discuss their field.</p>
+    <p>Interview session hosted by President Pooja Azhagesh.</p>
+  </article>
+
+  <article class="event-card">
+    <h4>Why Should Women Study Networking?</h4>
+    <p>Session on the Internet of Things and why networking is a powerful field for women.</p>
+  </article>
+
+  <article class="event-card">
+    <h4>Why Should Women Study Cyber Security?</h4>
+    <p>Women from Westminster Cyber Security discuss the intersection of CS and security.</p>
+    <p>Interview session led by President Pooja Azhagesh.</p>
+    <p>Includes a short activity.</p>
+  </article>
+
+  <!-- SEMESTER 2 -->
+  <h3>Semester 2 – Cross-Department Events & Challenges</h3>
+
+  <article class="event-card">
+    <h4>Computer Science & Its Application to Biomedicine</h4>
+    <p>Interactive cross-department event exploring how CS influences healthcare and biomedical fields.</p>
+  </article>
+
+  <article class="event-card">
+    <h4>Podium Master – Round Two</h4>
+    <p>Women in Computer Science x BCS collaboration. A platform to share ideas and build confidence.</p>
+  </article>
+
+  <article class="event-card">
+    <h4>Women in Computer Science x Coding Society</h4>
+    <p>Advanced LeetCode competitions in mini-groups, simulating real technical interviews.</p>
+  </article>
+
+  <article class="event-card">
+    <h4>Cyber Challenge</h4>
+    <p>Decrypting puzzles and solving cyber challenges in teams.</p>
+  </article>
+
+  <article class="event-card">
+    <h4>Women in Computer Science GitHub Project</h4>
+    <p>The final event of the year — a collaborative GitHub project showcasing the skills learned throughout the year.</p>
+  </article>
+
+  <p><strong>The club comes to an end for the academic year.</strong></p>
+</section>
+
+
+    <!-- CONTACT US -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact us</h2>
+      <p>
+        Have a question, idea, or collaboration in mind? Send us a message and a committee member will get back to you.
+      </p>
+
+      <form action="https://formsubmit.co/YOUR_EMAIL" method="POST">
+
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name">
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com">
+        </div>
+
+        <div>
+          <label for="role">Your role</label>
+          <input id="role" name="role" type="text" placeholder="Student, alum, sponsor, etc.">
+        </div>
+
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us how we can support you or work together."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Send message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Women in Computer Science Society · All rights reserved
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
